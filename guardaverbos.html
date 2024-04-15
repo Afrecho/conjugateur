@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="estiloenviador.css">  
+  <title>Formulario de conjugación verbal</title>
+  <script>
+    function limpiarFormulario() {
+      document.getElementById("leverbe").value = "";
+      document.getElementById("present").value = "";
+      document.getElementById("passeCompose").value = "";
+      document.getElementById("futur").value = "";
+      document.getElementById("imparfaite").value = "";
+    }
+  </script>
+</head>
+<body>
+  <h1>Formulario de conjugación verbal</h1>
+  <form action="procesar.php" method="post" id="formulario">
+    <label for="leverbe">Verbo:</label>
+    <input type="text" id="leverbe" name="leverbe" required>
+    <br>
+    <label for="present">Présent:</label>
+    <textarea id="present" name="present" rows="5" cols="50" required></textarea>
+    <br>
+    <label for="passeCompose">Passé Composé:</label>
+    <textarea id="passeCompose" name="passeCompose" rows="5" cols="50" required></textarea>
+    <br>
+    <label for="futur">Futur:</label>
+    <textarea id="futur" name="futur" rows="5" cols="50" required></textarea>
+    <br>
+    <label for="imparfaite">Imparfaite:</label>
+    <textarea id="imparfaite" name="imparfaite" rows="5" cols="50" required></textarea>
+    <br>
+    <br>
+    <button type="submit">Enviar</button>
+    <button type="button" onclick="limpiarFormulario()">Limpiar</button>
+  </form>
+</body>
+</html>

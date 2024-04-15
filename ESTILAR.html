@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="lecteur.css">
+  <link rel="shortcut icon" href="conju.png" type="image/x-icon">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;500;600;700;800&family=Aleo:ital,wght@0,100..900;1,100..900&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Grandiflora+One&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
+<script src="modoOscuro.js"></script>
+
+<title>Conjugaison du verbe</title>
+
+
+<style>
+  
+  </style>
+
+
+</head>
+<body>
+
+  <div class="dark-mode-switch">
+    <label class="switch">
+      <input id="darkModeSwitch" type="checkbox">
+      <span class="slider round"></span>
+    </label>
+  </div>
+
+  
+  <h1>Conjugaison du verbe <span id="verbe"></span></h1>
+
+  <div id="comboVerbes">
+    <div id="textVerbe"><p>Le verbe</p></div>
+    
+    <select id="verboSelect">
+      <option value="">hugui</option>
+      <option value="">222</option>
+      <option value="">33333</option>
+      <option value="">4444</option>
+      <option value="">8888</option>
+      <option value="">99999</option>
+
+
+    </select>
+  </div>
+
+  <div id="desTemps">
+    <div class="tempVerbe" id="present">
+      <h2 class="titreVerbe" >Présent</h2>
+      <p class="contentVerb" id="verbPresent">
+        un verbo <br>
+        un verbo <br> 
+        otro verbo <br>
+        un verbo mas<br>
+        y otro verbo mas<br>
+        un verbo mas<br>
+        un verbo con mas texto
+
+      </p>
+    </div>
+    <div class="tempVerbe" id="passeCompose">
+      <h2 class="titreVerbe" >Passé composé</h2>
+      <p class="contentVerb" id="verbPasseCompose">
+        un verbo <br>
+        un verbo <br> 
+        otro verbo <br>
+        un verbo mas<br>
+        y otro verbo mas<br>
+        un verbo mas<br>
+        un verbo con mas texto
+      </p>
+    </div>
+    <div class="tempVerbe" id="futur">
+      <h2 class="titreVerbe">Futur</h2>
+      <p class="contentVerb" id="verbFutur">
+        un verbo <br>
+        un verbo <br> 
+        otro verbo <br>
+        un verbo mas<br>
+        y otro verbo mas<br>
+        un verbo mas<br>
+        un verbo con mas texto
+      </p>
+    </div>
+    <div class="tempVerbe" id="imparfaite">
+      <h2 class="titreVerbe" >Imparfait</h2>
+      <p class="contentVerb" id="verbImparfaite">
+        un verbo <br>
+        un verbo <br> 
+        otro verbo <br>
+        un verbo mas<br>
+        y otro verbo mas<br>
+        un verbo mas<br>
+        un verbo con mas texto
+      </p>
+    </div>
+  </div>
+
+  
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const verboSelect = document.getElementById('verboSelect');
+      const verbeSpan = document.getElementById('verbe');
+      const verbPresent = document.getElementById('verbPresent');
+      const verbPasseCompose = document.getElementById('verbPasseCompose');
+      const verbFutur = document.getElementById('verbFutur');
+      const verbImparfaite = document.getElementById('verbImparfaite');
+      let verbos;
+    
+      // Realizar solicitud al script PHP para obtener todos los verbos
+      const xhr = new XMLHttpRequest();
+      xhr.open('GET', 'leertabla.php', true);
+    
+      xhr.onload = function() {
+        if (xhr.status === 200) {
+          verbos = JSON.parse(xhr.responseText);
+          verbos.forEach(verbo => {
+            const opcion = document.createElement('option');
+            opcion.value = verbo.le_verve;
+            opcion.textContent = verbo.le_verve;
+            verboSelect.appendChild(opcion);
+          });
+        } else {
+          console.error('Error al obtener los verbos:', xhr.statusText);
+        }
+      };
+    
+      xhr.send();
+    
+      // Evento para actualizar el texto cuando se selecciona una opción
+      verboSelect.addEventListener('change', function() {
+        const verboSeleccionado = verboSelect.value;
+        verbeSpan.textContent = verboSeleccionado;
+        
+        // Obtener la fila correspondiente al verbo seleccionado
+        const verbo = verbos.find(v => v.le_verve === verboSeleccionado);
+        if (verbo) {
+          // Imprimir el contenido de las columnas 'present', 'passe_compose', 'futur' e 'imparfaite'
+          verbPresent.innerHTML = verbo.present;
+          verbPasseCompose.innerHTML = verbo.passe_compose;
+          verbFutur.innerHTML = verbo.futur;
+          verbImparfaite.innerHTML = verbo.imparfaite;
+        }
+      });
+    });
+    
+    
+   
+    
+    
+      </script>
+</body>
+</html>
+

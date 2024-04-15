@@ -1,0 +1,200 @@
+html{
+    overflow-x: hidden;
+}
+
+body{
+    background-color: #f5f7f1;
+    min-width: 100vw;
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.9em;
+    margin-top:10px;
+    color: #ff7f50;
+    
+}
+
+
+#desTemps {/* contenedor*/
+    
+    display: grid;
+    position: relative;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    padding: 10px 150px;
+    justify-content: center;
+    background-color:#CED6ED;
+    top: -10px; 
+    border-top: 2px solid #817e7e85;
+    border-bottom: 2px solid rgba(129, 126, 126, 0.521);
+    box-shadow: 0px 2px 4px rgba(177, 175, 175, 0.671);
+}
+
+/*caja tiempos*/
+.tempVerbe { 
+    width: 100%;
+    height: 250px;
+    background-color: #f1f8e2;
+
+    padding: 10px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ffffff3a;
+}
+
+
+
+.tempVerbe h2 {
+    margin-top: 0;
+    position: relative;
+    font-size: 1.8em;
+    
+    height: auto;
+
+    background-color: #e2cfcfd7;
+}
+
+#comboVerbes {
+  position: absolute;
+  width: 250px;
+  height: auto;
+  top: 10px;
+  right: 20px;
+  background-color: rgba(170, 80, 11, 0);
+  z-index: 12;
+  padding: 0px;
+}
+
+
+#textVerbe {
+  position: relative;
+  background-color: #60a02142;
+  
+  padding: 8px;
+  margin: 0px; /* Ajuste para que esté pegado al techo */
+  text-align: center;
+  height: 40px; 
+  box-sizing: border-box;
+  font-size: 22px;
+}
+
+
+
+
+
+select {
+  position: relative;
+  top: 0px;
+  width: 100%;
+  height: 30px;
+  font-size: large;
+  background-color: #60a02142;
+  appearance: none;
+  text-align: center;
+}
+
+
+
+select:focus {
+    outline: none;
+    border-color: #f1f8e2;
+    box-shadow: 0 0 5px #f1f8e2;
+    background-color: #60a02142;
+}
+
+option::backdrop {
+  background-color: #60a02142;
+}
+
+.contentVerb{
+    position: relative;
+    background-color: rgba(212, 217, 226, 0.63);
+    display: block;
+    margin-top: -15px;
+    min-height: 110px;
+    box-sizing: border-box;
+    height: auto;
+    
+    line-height: 1.1;
+    font-size: 1.55em;
+    
+}
+
+.contentVerb,
+.tempVerbe h2,
+#textVerbe p  {
+    color: #313c5f;
+    font-family:"Aleo", serif;
+    
+}
+
+
+/*SWITH MODO OSCURO*/
+
+.switch {
+    position: absolute;
+    display: inline-block;
+    top: 28px;
+    left: 20px;
+    width: 60px;
+    height: 34px;
+  }
+  
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(155, 152, 152, 0.603);
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 34px; /* Hace que el switch sea redondeado */
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%; /* Hace que el botón del switch sea redondeado */
+  }
+  
+  input:checked + .slider {
+    background-color: #b1b2b6;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #b1b2b6;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+
+
+  /* variable color gris*/
+
+  :root {
+    --colorGris: #b1b2b6;
+    --colorAzul:  rgba(72, 72, 165, 0.138);                 /* #313c5f;*/
+    --colorPlomo: #333333;
+
+    --azul: rgba(72, 72, 165, 0.438);
+  }
+  
