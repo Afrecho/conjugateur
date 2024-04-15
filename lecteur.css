@@ -1,12 +1,92 @@
+
+
 html{
     overflow-x: hidden;
+    margin: 0px;
+    padding: 0px;
+    scroll-behavior: smooth;
 }
 
 body{
     background-color: #f5f7f1;
     min-width: 100vw;
     box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
 }
+
+#menu{
+  display: block;
+  position: fixed;
+  top: 150px;
+  left: 0px;
+  width: 100px;
+  height: 250px;
+  background-color: #313c5f;
+  border: 0.5px solid rgba(37, 36, 36, 0.76);
+  z-index: 14;
+  padding: 10px 15px;
+}
+
+#menu ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#menu ul li {
+  margin-bottom: 10px;
+}
+
+#menu ul li a {
+  text-decoration: none;
+  font-size: 1.3em;
+  color: #f1f8e2;
+}
+
+
+
+
+.verbesContainer{
+  display: block;
+  min-width: 100vw;
+  height: auto;
+  background-color: blueviolet;
+  margin: 0;
+  padding: 0;
+  border: 2px solid green;
+
+}
+
+#voyelle_container{
+  display: block;
+  position: relative;
+  min-width: 100vw ;
+  
+  height: auto;
+  min-height: 750px;
+  background-color: rgb(238, 171, 171);
+}
+
+#tableau{
+  display: block;
+  position: relative;
+  width: 80%;
+  left: 10%;
+  height: 540px;
+  top: 50px;
+  background-color: rgb(197, 218, 177);
+}
+
+#voyelle{
+  display: block;
+  position: absolute;
+  font-size: 10em;
+  left: 70px;
+  margin-top: 30px;
+  background-color: darkcyan;
+}
+
+
 
 h1 {
     text-align: center;
@@ -103,9 +183,7 @@ select:focus {
     background-color: #60a02142;
 }
 
-option::backdrop {
-  background-color: #60a02142;
-}
+
 
 .contentVerb{
     position: relative;
